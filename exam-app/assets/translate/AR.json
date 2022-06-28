@@ -1,0 +1,117 @@
+{
+  "Navbar": {
+    "Logo": "Exam",
+    "Links": {
+      "Home": "Home",
+      "Login": "Login",
+      "SignUp": "SignUp",
+      "Dashboard": "Dashboard",
+      "AddExam": "Add Exam",
+      "Subjects": "Subjects",
+      "Students": "Students",
+      "Grades": "Grades",
+      "logOut": "logOut"
+    }
+  },
+  "HomePage": {
+    "Title": "MCQ Exams",
+    "SubTitle": "Create a new account if you are a student - test your skills,register as a teacher and add new exams for your students and see their scores.",
+    "GetStarted": "Get Started",
+    "GoToDashboard": "GO To Dashboard"
+  },
+  "LoginPage": {
+    "title": "Login",
+    "subTitle": "Login As",
+    "teacherBtn": "Teacher",
+    "studentBtn": "Student",
+    "formEmail": "Email",
+    "formPass": "Password",
+    "createAccount": "Create New Account?",
+    "register": "Register"
+  },
+  "SignupPage": {
+    "title": "Registration",
+    "subTitle": "Create Account As",
+    "teacherBtn": "Teacher",
+    "studentBtn": "Student",
+    "formName": "Name",
+    "formEmail": "Email",
+    "formPass": "Password",
+    "formConfPass": "Confirm Password",
+    "hasAccount": "Already Have Account?",
+    "register": "Register",
+    "login": "Login"
+  },
+  "Student": {
+    "dashboard": {
+      "title": "Dashboard",
+      "subTitle1": "Get ready and test your skills in different subjects , go to the subjects and choose your exam, and when you are done you will find the test score in the grades page. What are you waiting for let's test your skills.",
+      "subTitle2": "Get ready and test your skills in different subjects , go to the subjects and choose your exam, and when you are done you will find the test score in the grades page. show your available grades.",
+      "subjects": "Subjects",
+      "grades": "Grades",
+      "ShowGrades": "Show Grades",
+      "showExams": "Show Exams"
+    },
+    "grades": {
+      "title": "Grades",
+      "subject": "Subject",
+      "grade": "Grade",
+      "mark": "Mark"
+    }
+  },
+  "Teacher": {
+    "dashboard": {
+      "title": "Dashboard",
+      "subs": "Subjects",
+      "subsTitle": "Get ready To Add new exams and show student's skills.",
+      "showSubjects": "Show Subjects",
+      "showStudents": "Show Students",
+      "stdTitle": "show your available Students grades.",
+      "stds": "My Students"
+    },
+    "subjects": {
+      "title": "Subjects",
+      "startExam": "Start Exams",
+      "questions": "Questions",
+      "grade": "Grade",
+      "show": "Show",
+      "delete": "Delete"
+    },
+    "students": {
+      "title": "Show My Students",
+      "name": "Name",
+      "subject": "Subject",
+      "grade": "Grade",
+      "mark": "Mark",
+      "filterPlaceholder": "Search By Name:"
+    },
+    "AddExam": {
+      "title": "Add New Exam",
+      "questions": "Questions",
+      "subjectName": "Subject Name",
+      "addSubjectName": "Add Subject Name",
+      "next": "Next",
+      "questionsMessage": "Fill Fields And Click Save To Add Another Question And When Add All Question Click Next.",
+      "question": "Question",
+      "answer1": "Answer 1",
+      "answer2": "Answer 2",
+      "answer3": "Answer 3",
+      "answer4": "Answer 4",
+      "correctAnswer": "Correct Answer",
+      "back": "Back",
+      "save": "Save",
+      "reset": "Reset",
+      "examPreview": "Exam Preview",
+      "exam": "Exam",
+      "done": "Done"
+    },
+    "ShowExam": {
+      "title": "Exam",
+      "warningMessage": "Should be There One Question or more unless you want to delete this exam and write new one.",
+      "edit": "Edit",
+      "delete": "Delete",
+      "result": "Result",
+      "saveChanges": "Save changes"
+    }
+  }
+}

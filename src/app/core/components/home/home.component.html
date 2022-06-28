@@ -1,0 +1,33 @@
+<div class="home py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="home-info">
+          <h1>{{ "HomePage.Title" | translate }}</h1>
+          <p class="px-5 px-lg-0">
+            {{ "HomePage.SubTitle" | translate }}
+          </p>
+          <button
+            class="btn"
+            [routerLink]="[loginUser?.role ? loginUser?.role : 'auth/login']"
+          >
+            {{
+              loginUser?.role
+                ? ("HomePage.GoToDashboard" | translate)
+                : ("HomePage.GetStarted" | translate)
+            }}
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="home-img">
+          <img
+            src="https://i.ibb.co/MsHWY2G/Home.png"
+            alt="home image"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

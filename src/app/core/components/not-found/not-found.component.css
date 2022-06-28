@@ -1,0 +1,22 @@
+img {
+  display: block;
+  margin: auto;
+  height: 80vh;
+}
+
+h1 {
+  color: brown;
+}
+
+a {
+  color: #fff;
+  background-color: brown;
+  border: 1px solid transparent;
+  transition: 0.4s;
+}
+
+a:hover {
+  color: brown;
+  background-color: #fff;
+  border: 1px solid brown;
+}

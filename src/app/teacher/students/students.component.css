@@ -1,0 +1,80 @@
+.students {
+  padding: 50px 0px;
+}
+
+.students h1 {
+  display: inline-block;
+  color: #4054c5;
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding-bottom: 10px;
+  border-bottom: 4px solid #4054c5;
+}
+
+.students table td:not(thead tr td) {
+  color: #444;
+}
+.students table td,
+.students table th {
+  font-family: cursive !important;
+}
+.students table thead {
+  background-color: #4054c5;
+  color: #d5dcff;
+  letter-spacing: 1px;
+}
+.students table thead tr th:first-of-type,
+.students table tbody tr th:first-of-type {
+  background-color: #4054c5;
+  color: #d5dcff;
+}
+.students table thead tr th {
+  padding: 15px 0px;
+}
+.students table tbody tr {
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 0px;
+}
+.headers,
+.subjects-data {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  padding: 0px 0px !important;
+}
+
+.headers td,
+.subjects-data td {
+  border-left: 1px solid #fff;
+  width: 33.3%;
+  padding: 15px 0px;
+}
+tbody tr th,
+.subjects-data td {
+  padding: 0px;
+}
+
+tbody > tr th:first-of-type {
+  line-height: 80px;
+  width: 5%;
+}
+
+tbody > tr th:last-of-type {
+  padding: 10px 0px;
+}
+tbody > tr {
+  padding: 10px 0px !important;
+}
+
+tbody > tr > td:first-of-type {
+  width: 35%;
+  padding: 0px;
+  line-height: 80px;
+}
+
+.subjects-data {
+  padding: 5px 0px !important;
+}

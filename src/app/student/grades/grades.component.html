@@ -1,0 +1,33 @@
+<div class="grades">
+  <div class="container">
+    <h1>{{ "Student.grades.title" | translate }} - {{ student?.name }}</h1>
+    <div class="alert alert-danger" *ngIf="student?.subjects?.length === 0">
+      There Is No Grades Yet.
+    </div>
+    <div class="grades-info" *ngIf="student?.subjects?.length !== 0">
+      <table
+        class="table table-bordered table-responsive table-striped text-center"
+      >
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>{{ "Student.grades.subject" | translate }}</th>
+            <th>{{ "Student.grades.grade" | translate }}</th>
+            <th>{{ "Student.grades.mark" | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let subject of student?.subjects; let i = index"
+            id="{{ i }}"
+          >
+            <td>{{ i + 1 }}</td>
+            <td>{{ subject.subjectName }}</td>
+            <td>{{ subject.grade | percent }}</td>
+            <td>{{ subject.mark }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

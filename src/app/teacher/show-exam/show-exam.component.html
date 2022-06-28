@@ -1,0 +1,207 @@
+<div class="exam position-relative">
+  <h1 [class]="lang === 'EN' ? 'rtlStyle' : 'ltrStyle'">
+    {{ "Teacher.ShowExam.title" | translate }} {{ exam?.subjectName }}
+  </h1>
+  <div
+    class="alert alert-danger"
+    *ngIf="exam?.questions?.length === 1 && loginUser?.role === 'teacher'"
+  >
+    {{ "Teacher.ShowExam.warningMessage" | translate }}
+  </div>
+  <div class="allQuestions p-5 shadow border">
+    <div
+      class="question p-2"
+      *ngFor="let question of exam?.questions; let i = index"
+    >
+      <p class="title lead">[Q{{ i + 1 }}]- {{ question.title }}</p>
+      <div class="answers d-flex">
+        <div class="answer1">
+          <mat-radio-button
+            *ngIf="loginUser?.role === 'student' && !showGrade"
+            (change)="getCorrectAnswer($event)"
+            name="{{ i }}"
+            value="{{ question.answer1 }}"
+          ></mat-radio-button>
+          <span>A- {{ question.answer1 }}</span>
+        </div>
+        <div class="answer2">
+          <mat-radio-button
+            *ngIf="loginUser?.role === 'student' && !showGrade"
+            (change)="getCorrectAnswer($event)"
+            name="{{ i }}"
+            value="{{ question.answer2 }}"
+          ></mat-radio-button>
+          <span>B- {{ question.answer2 }}</span>
+        </div>
+        <div class="answer3">
+          <mat-radio-button
+            *ngIf="loginUser?.role === 'student' && !showGrade"
+            (change)="getCorrectAnswer($event)"
+            name="{{ i }}"
+            value="{{ question.answer3 }}"
+          ></mat-radio-button>
+          <span>C- {{ question.answer3 }}</span>
+        </div>
+        <div class="answer4">
+          <mat-radio-button
+            *ngIf="loginUser?.role === 'student' && !showGrade"
+            (change)="getCorrectAnswer($event)"
+            name="{{ i }}"
+            value="{{ question.answer4 }}"
+          ></mat-radio-button>
+          <span>D- {{ question.answer4 }}</span>
+        </div>
+      </div>
+      <div class="btns" *ngIf="loginUser?.role === 'teacher'">
+        <p class="text-success mb-0">
+          Correct Answer: {{ question.correctAnswer }}
+        </p>
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary me-2"
+            class="{{ lang === 'EN' ? 'ms-2 me-0' : '' }}"
+            data-toggle="modal"
+            data-target="#editQuestionModel"
+            (click)="openModel = !openModel; getEditQuestion(i)"
+          >
+            {{ "Teacher.ShowExam.edit" | translate }}
+          </button>
+          <button
+            class="btn btn-danger"
+            (click)="deleteQuestion(i)"
+            [disabled]="exam.questions.length === 1"
+          >
+            {{ "Teacher.ShowExam.delete" | translate }}
+          </button>
+        </div>
+      </div>
+      <hr />
+    </div>
+    <div
+      class="btns mt-2"
+      *ngIf="loginUser?.role === 'student' && showGrade === false"
+    >
+      <button class="btn btn-primary" (click)="getResult()">
+        {{ "Teacher.ShowExam.result" | translate }}
+      </button>
+    </div>
+  </div>
+  <div class="alert alert-danger" *ngIf="exam?.questions?.length === 0">
+    <p class="text-center">
+      {{
+        loginUser?.role === "teacher"
+          ? "This Is No Questions Added Yet Please Add Some Question"
+          : "This Is No Questions Added Yet."
+      }}
+    </p>
+  </div>
+
+  <!-- Grade -->
+  <div class="grade" *ngIf="showGrade && loginUser?.role === 'student'">
+    <div class="grade-content border rounded bg-light">
+      <h3>Result:</h3>
+      <span class="text-primary mb-2">{{ totalGrade | percent }}</span>
+      <span
+        class="fw-bold"
+        [style.color]="totalGrade < 0.5 ? '#bb2d3b' : 'rgb(76, 145, 65)'"
+        >{{ mark }}</span
+      >
+      <p [style.color]="totalGrade < 0.5 ? '#bb2d3b' : 'rgb(76, 145, 65)'">
+        {{ totalGrade < 0.5 ? "Failure " : "passed" }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Model To Edit Any Question -->
+<div
+  class="modal fade"
+  id="editQuestionModel"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+  [class.displayModel]="openModel"
+>
+  <div class="modal-dialog" role="document" *ngIf="openModel">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold text-primary" id="exampleModalLongTitle">
+          {{ "Teacher.ShowExam.edit" | translate }}
+          {{ "Teacher.AddExam.question" | translate }}
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-dismiss="modal"
+          aria-label="Close"
+          (click)="openModel = !openModel"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form #form="ngForm">
+          <input
+            type="text"
+            name="title"
+            class="form-control mb-2"
+            [ngModel]="selectedQuestion.title"
+            placeholder="{{ 'Teacher.AddExam.question' | translate }}"
+          />
+          <input
+            type="text"
+            name="answer1"
+            class="form-control mb-2"
+            [ngModel]="selectedQuestion.answer1"
+            placeholder="{{ 'Teacher.AddExam.answer1' | translate }}"
+          />
+          <input
+            type="text"
+            name="answer2"
+            class="form-control mb-2"
+            [ngModel]="selectedQuestion.answer2"
+            placeholder="{{ 'Teacher.AddExam.answer2' | translate }}"
+          />
+          <input
+            type="text"
+            name="answer3"
+            class="form-control mb-2"
+            [ngModel]="selectedQuestion.answer3"
+            placeholder="{{ 'Teacher.AddExam.answer3' | translate }}"
+          />
+          <input
+            type="text"
+            name="answer4"
+            class="form-control mb-2"
+            [ngModel]="selectedQuestion.answer4"
+            placeholder="{{ 'Teacher.AddExam.answer4' | translate }}"
+          />
+          <input
+            type="text"
+            class="form-control"
+            name="correctAnswer"
+            [ngModel]="selectedQuestion.correctAnswer"
+            placeholder="{{ 'Teacher.AddExam.correctAnswer' | translate }}"
+          />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="openModel = !openModel"
+        >
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="saveEditQuestion(form.value)"
+        >
+          {{ "Teacher.ShowExam.saveChanges" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

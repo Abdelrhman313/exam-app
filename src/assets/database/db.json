@@ -1,0 +1,328 @@
+{
+  "students": [
+    {
+      "name": "Adel Ahmed",
+      "email": "ahmed@mail.com",
+      "password": "12345678",
+      "subjects": [
+        {
+          "subjectName": "Math",
+          "subjectId": "1",
+          "grade": 1,
+          "mark": "Distinct"
+        },
+        {
+          "subjectName": "English",
+          "subjectId": "2",
+          "grade": 1,
+          "mark": "Distinct"
+        },
+        {
+          "subjectName": "Science",
+          "subjectId": "3",
+          "grade": 1,
+          "mark": "Distinct"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "Hassan ali",
+      "email": "hassan12@gmail.com",
+      "password": "12341234",
+      "subjects": [
+        {
+          "subjectName": "Math",
+          "subjectId": "1",
+          "grade": 0,
+          "mark": "Fail"
+        },
+        {
+          "subjectName": "English",
+          "subjectId": "2",
+          "grade": 1,
+          "mark": "Distinct"
+        },
+        {
+          "subjectName": "Science",
+          "subjectId": "3",
+          "grade": 1,
+          "mark": "Distinct"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "Heba Hany",
+      "email": "heba.hany@mail.com",
+      "password": "12341234",
+      "subjects": [
+        {
+          "subjectName": "English",
+          "subjectId": "2",
+          "grade": 1,
+          "mark": "Distinct"
+        },
+        {
+          "subjectName": "Math",
+          "subjectId": "1",
+          "grade": 1,
+          "mark": "Distinct"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "name": "Ahmed Mohamed",
+      "email": "anmed.mohamed@mail.com",
+      "password": "12121212",
+      "subjects": [
+        {
+          "subjectName": "Math",
+          "subjectId": "1",
+          "grade": 0,
+          "mark": "Fail"
+        },
+        {
+          "subjectName": "English",
+          "subjectId": "2",
+          "grade": 1,
+          "mark": "Distinct"
+        },
+        {
+          "subjectName": "Science",
+          "subjectId": "3",
+          "grade": 1,
+          "mark": "Distinct"
+        }
+      ],
+      "id": 4
+    },
+    {
+      "name": "Omar Ali",
+      "email": "omar.ali12@gmail.com",
+      "password": "123456789",
+      "subjects": [
+        {
+          "subjectName": "Math",
+          "subjectId": "1",
+          "grade": 1,
+          "mark": "Distinct"
+        },
+        {
+          "subjectName": "English",
+          "subjectId": "2",
+          "grade": 1,
+          "mark": "Distinct"
+        }
+      ],
+      "id": 5
+    },
+    {
+      "name": "Ramadan Saad",
+      "email": "ramadansaad1123@mail.com",
+      "password": "11223344",
+      "subjects": [
+        {
+          "subjectName": "English",
+          "subjectId": "2",
+          "grade": 1,
+          "mark": "Distinct"
+        },
+        {
+          "subjectName": "Math",
+          "subjectId": "1",
+          "grade": 0,
+          "mark": "Fail"
+        }
+      ],
+      "id": 6
+    },
+    {
+      "name": "Asmaa Galal",
+      "email": "asmaagalal@mail.com",
+      "password": "147258369",
+      "subjects": [
+        {
+          "subjectName": "Math",
+          "subjectId": "1",
+          "grade": 1,
+          "mark": "Distinct"
+        },
+        {
+          "subjectName": "English",
+          "subjectId": "2",
+          "grade": 0,
+          "mark": "Fail"
+        },
+        {
+          "subjectName": "Science",
+          "subjectId": "3",
+          "grade": 1,
+          "mark": "Distinct"
+        }
+      ],
+      "id": 7
+    },
+    {
+      "name": "salma mohamed",
+      "email": "salma.mohamed.122@gmail.com",
+      "password": "12344321",
+      "subjects": [
+        {
+          "subjectName": "English",
+          "subjectId": "2",
+          "grade": 0,
+          "mark": "Fail"
+        },
+        {
+          "subjectName": "Math",
+          "subjectId": "1",
+          "grade": 0,
+          "mark": "Fail"
+        },
+        {
+          "subjectName": "Science",
+          "subjectId": "3",
+          "grade": 1,
+          "mark": "Distinct"
+        }
+      ],
+      "id": 8
+    },
+    {
+      "name": "Yahia Ali",
+      "email": "yahia.ali@mail.com",
+      "password": "12312312",
+      "subjects": [
+        {
+          "subjectName": "English",
+          "subjectId": "2",
+          "grade": 1,
+          "mark": "Distinct"
+        }
+      ],
+      "id": 9
+    },
+    {
+      "name": "Mostafa saad",
+      "email": "mos.saad.12@mail.com",
+      "password": "12345678",
+      "subjects": [
+        {
+          "subjectName": "Science",
+          "subjectId": "3",
+          "grade": 1,
+          "mark": "Distinct"
+        },
+        {
+          "subjectName": "Math",
+          "subjectId": "1",
+          "grade": 1,
+          "mark": "Distinct"
+        }
+      ],
+      "id": 10
+    },
+    {
+      "name": "mahmoud ali",
+      "email": "mahmoud.ali@mail.com",
+      "password": "123123123",
+      "subjects": [
+        {
+          "subjectName": "Math",
+          "subjectId": "1",
+          "grade": 1,
+          "mark": "Distinct"
+        }
+      ],
+      "id": 11
+    },
+    {
+      "name": "amir hatem",
+      "email": "amir.hatem12@gmail.com",
+      "password": "147258369",
+      "subjects": [
+        {
+          "subjectName": "English",
+          "subjectId": "2",
+          "grade": 1,
+          "mark": "Distinct"
+        }
+      ],
+      "id": 12
+    }
+  ],
+  "teachers": [
+    {
+      "name": "Abdelrhman Yasser Ibrahim",
+      "email": "abdelrhmanyasser77@gmail.com",
+      "password": "12345678",
+      "id": 1
+    },
+    {
+      "name": "Abdelrhman Mohamed",
+      "email": "abdelrhman.mohamed@gmail.com",
+      "password": "12121212",
+      "id": 2
+    },
+    {
+      "name": "Mariam Adel",
+      "email": "mariam.adel@gmail.com",
+      "password": "01128479486",
+      "id": 3
+    }
+  ],
+  "login": [
+    {
+      "id": 1
+    }
+  ],
+  "subjects": [
+    {
+      "teacherId": 1,
+      "subjectName": "Math",
+      "questions": [
+        {
+          "title": "3*5",
+          "answer1": "12",
+          "answer2": "13",
+          "answer3": "14",
+          "answer4": "15",
+          "correctAnswer": "15"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "teacherId": 2,
+      "subjectName": "English",
+      "questions": [
+        {
+          "title": "going",
+          "answer1": "for",
+          "answer2": "from",
+          "answer3": "to",
+          "answer4": "like",
+          "correctAnswer": "to"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "teacherId": 2,
+      "subjectName": "Science",
+      "questions": [
+        {
+          "title": "Na atomic number?",
+          "answer1": "12",
+          "answer2": "11",
+          "answer3": "14",
+          "answer4": "13",
+          "correctAnswer": "11"
+        }
+      ],
+      "id": 3
+    }
+  ]
+}

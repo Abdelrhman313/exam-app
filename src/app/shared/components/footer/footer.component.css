@@ -1,0 +1,17 @@
+div {
+  background-color: #f8f9fa;
+  border-top: 1px solid #aaa;
+  padding: 20px;
+  text-align: center;
+}
+div p {
+  font-weight: 600;
+  color: #777;
+  letter-spacing: 0.5px;
+  margin-bottom: 0px;
+  letter-spacing: 2px;
+  font-family: sans-serif;
+}
+div p span {
+  color: brown;
+}

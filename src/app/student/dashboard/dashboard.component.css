@@ -1,0 +1,38 @@
+.dashboard {
+  padding: 50px 0px;
+}
+.dashboard h1 {
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding-bottom: 10px;
+  border-bottom: 4px solid #3f51b5;
+  display: inline-block;
+  color: #3f51b5;
+  margin-bottom: 30px;
+}
+
+.dashboard .card {
+  padding: 30px;
+}
+.dashboard .card .title {
+  font-size: 22px;
+  color: #3f51b5;
+}
+.dashboard .card p {
+  line-height: 1.7em;
+}
+
+.dashboard .card button {
+  padding: 4px 24px;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .dashboard h1 {
+    font-size: 30px;
+  }
+  .dashboard .card {
+    margin-bottom: 30px;
+  }
+}

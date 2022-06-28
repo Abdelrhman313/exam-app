@@ -1,0 +1,83 @@
+<div class="dashboard">
+  <div class="container">
+    <h1>
+      {{ "Teacher.dashboard.title" | translate }} {{ loginTeacher?.name }}
+    </h1>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-card class="card">
+          <mat-card-header>
+            <mat-card-title class="title mb-3">
+              <i class="fa fa-wand-magic-sparkles me-1"></i>
+              {{ "Teacher.dashboard.subs" | translate }} [
+              {{ subjects?.length }} ]
+            </mat-card-title>
+            <mat-card-subtitle class="text-muted">
+              {{
+                subjects?.length === 0
+                  ? "No Subjects Added Yet"
+                  : "Available " + subjects?.length + " Subjects"
+              }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <img
+            mat-card-image
+            src="https://i.ibb.co/rm165Wq/exam.png"
+            alt="exam"
+            class="img-fluid"
+          />
+          <mat-card-content>
+            <p class="text-muted">
+              {{ "Teacher.dashboard.subsTitle" | translate }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button
+              mat-raised-button
+              color="primary"
+              [routerLink]="'../teacher/subjects'"
+              [disabled]="subjects?.length === 0"
+            >
+              {{ "Teacher.dashboard.showSubjects" | translate }}
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div class="col-md-6">
+        <mat-card class="card">
+          <mat-card-header>
+            <mat-card-title class="title mb-3">
+              <i class="fa fa-user-graduate me-1"></i>
+              {{ "Teacher.dashboard.stds" | translate }} [
+              {{ myStudents?.length }} ]
+            </mat-card-title>
+            <mat-card-subtitle class="text-muted">
+              there are ({{ myStudents?.length }}) student
+            </mat-card-subtitle>
+          </mat-card-header>
+          <img
+            mat-card-image
+            src="https://i.ibb.co/DgvFTwC/grades.png"
+            alt="exam"
+            class="img-fluid"
+          />
+          <mat-card-content style="margin-top: 40px">
+            <p class="text-muted">
+              {{ "Teacher.dashboard.stdTitle" | translate }}.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button
+              mat-raised-button
+              color="primary"
+              [routerLink]="'./students'"
+              [disabled]="!myStudents?.length"
+            >
+              {{ "Teacher.dashboard.showStudents" | translate }}
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

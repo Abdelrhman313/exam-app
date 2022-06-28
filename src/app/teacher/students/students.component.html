@@ -1,0 +1,58 @@
+<div class="students">
+  <div class="contianer">
+    <h1 style="padding-bottom: 15px">
+      {{ "Teacher.students.title" | translate }}
+    </h1>
+    <div class="filter mb-3">
+      <input
+        type="text"
+        placeholder="{{ 'Teacher.students.filterPlaceholder' | translate }}"
+        #filter
+        class="form-control"
+        (keyup)="filterStudents(filter.value)"
+      />
+    </div>
+    <div *ngIf="students.length === 0" class="alert alert-danger">
+      There Is No Student Do Exams Yet!
+    </div>
+    <div *ngIf="students.length !== 0" class="students-data">
+      <!-- <ng-container *ngFor="let subject of TeacherSubjects; let idx = index">
+        <h2>{{ subject?.subjectName }}</h2> -->
+      <table
+        class="table table-bordered table-responsive table-striped text-center"
+      >
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>{{ "Teacher.students.name" | translate }}</th>
+            <th style="padding: 0px">
+              <tr class="headers">
+                <td scope="col">
+                  {{ "Teacher.students.subject" | translate }}
+                </td>
+                <td scope="col">{{ "Teacher.students.grade" | translate }}</td>
+                <td scope="col">{{ "Teacher.students.mark" | translate }}</td>
+              </tr>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of filterStudent; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>
+              {{ student?.name }}
+            </td>
+            <th>
+              <tr class="subjects-data" *ngFor="let item of student?.subjects">
+                <td>{{ item.subjectName }}</td>
+                <td>{{ item.grade | percent }}</td>
+                <td>{{ item.mark }}</td>
+              </tr>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <!-- </ng-container> -->
+    </div>
+  </div>
+</div>

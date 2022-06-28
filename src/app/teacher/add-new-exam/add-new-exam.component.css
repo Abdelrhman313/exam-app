@@ -1,0 +1,80 @@
+.addNewExam {
+  padding: 50px 0px;
+}
+
+.addNewExam h1 {
+  position: relative;
+  display: inline-block;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.addNewExam h1::before,
+.addNewExam h1::after {
+  content: "";
+  position: absolute;
+  height: 5px;
+}
+.addNewExam h1::before {
+  width: 100%;
+  background-color: #0d6efd;
+  bottom: -10px;
+  left: 0px;
+}
+.addNewExam h1::after {
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 15px solid transparent;
+  border-top-color: #0d6efd;
+}
+
+.addNewExam p.lead.text-primary {
+  position: relative;
+  font-weight: 500;
+  margin-bottom: 25px;
+  padding-left: 0px;
+}
+p.lead.text-primary::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 3px;
+  background-color: #0d6efd;
+  bottom: -10px;
+  left: 0px;
+}
+
+.addNewExam .mat-form-field {
+  width: 100% !important;
+}
+.addNewExam .btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+.addNewExam label {
+  margin-right: 4px;
+}
+.addNewExam .question {
+  margin-bottom: 20px;
+}
+.addNewExam .question p {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.addNewExam .question .answers {
+  flex-wrap: wrap;
+}
+.addNewExam .question .answers span {
+  width: 50%;
+  padding: 10px 0px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.rtlMood::after {
+  right: 0px;
+}
+.rtlInput {
+  text-align: right;
+}

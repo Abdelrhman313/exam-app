@@ -1,0 +1,144 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom">
+  <div class="container">
+    <a
+      class="navbar-brand {{ Lang === 'AR' ? '' : 'me-0 ms-2' }}"
+      routerLink=""
+    >
+      {{ "Navbar.Logo" | translate }}
+    </a>
+    <div class="translate-theme-btns">
+      <button
+        type="button"
+        class="btn btn-primary me-2 {{ Lang === 'AR' ? '' : 'me-0 ms-2' }}"
+        (click)="changeLanguage()"
+      >
+        {{ Lang }}
+      </button>
+      <button
+        type="button"
+        class="btn {{ this.theme === 'Dark' ? 'btn-dark' : 'btn-warning' }}"
+        (click)="changeTheme()"
+      >
+        <i *ngIf="this.theme === 'Dark'" class="fa fa-moon text-light"></i>
+        <i
+          *ngIf="this.theme === 'Light'"
+          class="fa fa-lightbulb text-light"
+        ></i>
+      </button>
+    </div>
+    <button
+      class="navbar-toggler d-block d-md-none"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarID"
+      aria-controls="navbarID"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="isOpen = !isOpen"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse"
+      [class]="{ show: isOpen }"
+      id="navbarID"
+      (click)="closeNavbar()"
+    >
+      <div class="navbar-nav">
+        <a
+          class="nav-link"
+          [routerLink]="['/']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="closeNavbar()"
+        >
+          <i class="fa-solid fa-house"></i>
+          {{ "Navbar.Links.Home" | translate }}
+        </a>
+        <a
+          class="nav-link"
+          [routerLink]="[user?.role === 'student' ? 'student' : 'teacher']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="closeNavbar()"
+          *ngIf="user?.role"
+        >
+          <i class="fa fa-dashboard"></i>
+          {{ "Navbar.Links.Dashboard" | translate }}
+        </a>
+        <a
+          class="nav-link"
+          [routerLink]="['auth/login']"
+          routerLinkActive="active"
+          (click)="closeNavbar()"
+          *ngIf="!user?.name"
+        >
+          <i class="fa-solid fa-right-to-bracket"></i>
+          {{ "Navbar.Links.Login" | translate }}
+        </a>
+        <a
+          class="nav-link"
+          [routerLink]="['auth/signup']"
+          routerLinkActive="active"
+          (click)="closeNavbar()"
+          *ngIf="!user?.name"
+        >
+          <i class="fa-solid fa-user-plus"></i>
+          {{ "Navbar.Links.SignUp" | translate }}
+        </a>
+        <a
+          class="nav-link"
+          [routerLink]="['teacher/add-New-Exam']"
+          routerLinkActive="active"
+          (click)="closeNavbar()"
+          *ngIf="user?.role === 'teacher'"
+        >
+          <i class="fa-solid fa-sheet-plastic"></i>
+          {{ "Navbar.Links.AddExam" | translate }}
+        </a>
+        <a
+          class="nav-link"
+          [routerLink]="['teacher/subjects']"
+          routerLinkActive="active"
+          (click)="closeNavbar()"
+          *ngIf="user?.role"
+        >
+          <i class="fa-solid fa-magic-wand-sparkles"></i>
+          {{ "Navbar.Links.Subjects" | translate }}
+        </a>
+        <a
+          class="nav-link"
+          [routerLink]="['teacher/students']"
+          routerLinkActive="active"
+          (click)="closeNavbar()"
+          *ngIf="user?.role === 'teacher'"
+        >
+          <i class="fa-solid fa-people-roof"></i>
+          {{ "Navbar.Links.Students" | translate }}
+        </a>
+        <a
+          class="nav-link"
+          [routerLink]="['student/grades']"
+          routerLinkActive="active"
+          (click)="closeNavbar()"
+          *ngIf="user?.role === 'student'"
+        >
+          <i class="fa-solid fa-scale-unbalanced"></i>
+          {{ "Navbar.Links.Grades" | translate }}
+        </a>
+        <button
+          class="btn btn-primary me-md-2 me-0 my-2 my-md-0 text-light {{
+            Lang === 'AR' ? '' : 'me-0 ms-md-2'
+          }}"
+          [routerLink]="[user?.role]"
+          *ngIf="user !== null"
+        >
+          {{ user?.name.split(" ")[0] }}
+        </button>
+        <button class="btn btn-danger" (click)="logout()" *ngIf="user !== null">
+          {{ "Navbar.Links.logOut" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,158 @@
+<div class="signup py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <div class="text-muted mb-4">
+          <h1 class="mb-4 text-primary fw-bold">
+            {{ "SignupPage.title" | translate }}
+          </h1>
+          <p class="lead">
+            {{ "SignupPage.subTitle" | translate }}
+            <button
+              class="btn btn-secondary d-block me-2 mb-2 mt-2 mt-sm-0 mb-sm-0 d-sm-inline-block {{
+                Lang === 'AR' ? '' : 'me-0 ms-md-2'
+              }}"
+              [class.active]="!isStudent"
+              (click)="isStudent = false"
+            >
+              {{ "SignupPage.teacherBtn" | translate }}
+            </button>
+            <button
+              class="btn btn-secondary d-block d-sm-inline-block"
+              [class.active]="isStudent"
+              (click)="isStudent = true"
+            >
+              {{ "SignupPage.studentBtn" | translate }}
+            </button>
+          </p>
+        </div>
+        <div class="signup-form mt-2">
+          <!-- <p class="lead fw-bold mb-1 mt-5 ps-1 text-primary mb-3">
+            *{{ !isStudent ? "Teacher" : "Student" }} Registration:
+          </p> -->
+          <form
+            #form="ngForm"
+            class="p-4 bg-light shadow border rounded-2"
+            (ngSubmit)="onSubmit(form)"
+          >
+            <div class="row">
+              <div class="col-md-6 col-lg-12 mb-3 mb-md-0">
+                <label for="validationCustom01" class="form-label"
+                  >*{{ "SignupPage.formName" | translate }}
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  ngModel
+                  #name="ngModel"
+                  name="name"
+                  required
+                  minlength="8"
+                />
+                <span
+                  class="text-danger"
+                  *ngIf="name.invalid && name.dirty && name.touched"
+                  >*Please Write Name from > 8 letter!</span
+                >
+              </div>
+              <div class="col-md-6 col-lg-12 mt-lg-3">
+                <label for="validationCustomUsername" class="form-label"
+                  >*{{ "SignupPage.formEmail" | translate }}</label
+                >
+                <div class="input-group">
+                  <span class="input-group-text" id="inputGroupPrepend">@</span>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="validationCustomUsername"
+                    ngModel
+                    #email="ngModel"
+                    name="email"
+                    required
+                    email
+                  />
+                </div>
+                <span
+                  class="text-danger"
+                  *ngIf="!email.valid && email.dirty && email.touched"
+                >
+                  Please write correct email.
+                </span>
+              </div>
+              <div class="col-md-6 col-lg-12 mt-4">
+                <label for="validationCustom03" class="form-label"
+                  >*{{ "SignupPage.formPass" | translate }}</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="validationCustom03"
+                  ngModel
+                  #pass="ngModel"
+                  name="password"
+                  required
+                  minlength="8"
+                />
+                <span
+                  class="text-danger"
+                  *ngIf="pass.invalid && pass.dirty && pass.touched"
+                >
+                  Please write min 8 digits.
+                </span>
+              </div>
+              <div class="col-md-6 col-lg-12 mt-4">
+                <label for="validationCustom04" class="form-label"
+                  >*{{ "SignupPage.formConfPass" | translate }}</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="validationCustom04"
+                  name="confPass"
+                  ngModel
+                  #confPass="ngModel"
+                  required
+                />
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    confPass.value !== pass.value &&
+                    confPass.dirty &&
+                    confPass.touched
+                  "
+                >
+                  Please reEnter the same Password.
+                </span>
+              </div>
+              <div class="col-12 mt-4">
+                <button
+                  class="btn btn-primary"
+                  [disabled]="form.invalid || confPass.value !== pass.value"
+                  type="submit"
+                >
+                  {{ "SignupPage.register" | translate }}
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <p class="fw-bold mt-4 ms-1" style="letter-spacing: 1px">
+          {{ "SignupPage.hasAccount" | translate }}
+          <a routerLink="../login" class="text-danger">
+            {{ "SignupPage.login" | translate }}
+          </a>
+        </p>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="signup-img ps-3">
+          <img
+            src="https://i.ibb.co/5F5V73h/signup.png"
+            alt="signup image"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

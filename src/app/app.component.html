@@ -1,0 +1,16 @@
+<div
+  [style.direction]="lang == 'AR' ? 'ltr' : 'rtl'"
+  [style.backgroundColor]="this.theme === 'Dark' ? '#fff' : '#212529'"
+  [style.color]="this.theme === 'Dark' ? '' : '#fff'"
+>
+  <app-header></app-header>
+
+  <div
+    class="container"
+    [@routing-animation]="outlet.isActivated ? outlet.activatedRoute : ''"
+  >
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+
+  <app-footer></app-footer>
+</div>

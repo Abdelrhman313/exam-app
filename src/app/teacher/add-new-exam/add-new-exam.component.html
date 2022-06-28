@@ -1,0 +1,214 @@
+<div class="addNewExam">
+  <div class="container">
+    <h1 class="text-primary mb-5">{{ "Teacher.AddExam.title" | translate }}</h1>
+    <mat-horizontal-stepper #stepper linear class="stepper">
+      <mat-step [stepControl]="subjectControl">
+        <ng-template matStepLabel>
+          {{ "Teacher.AddExam.subjectName" | translate }}
+        </ng-template>
+        <p
+          class="lead text-primary"
+          class="{{ lang === 'EN' ? 'rtlMood' : '' }}"
+        >
+          {{ "Teacher.AddExam.addSubjectName" | translate }}.
+        </p>
+        <mat-form-field class="mt-3">
+          <input
+            matInput
+            placeholder="ex: Math"
+            [formControl]="subjectControl"
+            class="{{ lang === 'EN' ? 'rtlInput' : '' }}"
+            (keyup)="checkExistingSubject(nextBtn)"
+          />
+        </mat-form-field>
+        <div class="btns">
+          <button
+            type="button"
+            mat-button
+            class="btn-success"
+            matStepperNext
+            (click)="setSubject()"
+            [disabled]="subjectControl.invalid || subjectControl.errors"
+            #nextBtn
+          >
+            {{ "Teacher.AddExam.next" | translate }}
+          </button>
+        </div>
+      </mat-step>
+
+      <mat-step [optional]="false">
+        <form [formGroup]="question">
+          <ng-template matStepLabel>
+            {{ "Teacher.AddExam.questions" | translate }}
+            {{ subjectName }}
+          </ng-template>
+          <div class="row">
+            <p
+              class="lead text-primary"
+              class="{{ lang === 'EN' ? 'rtlMood pe-0' : '' }}"
+            >
+              {{ "Teacher.AddExam.questionsMessage" | translate }}
+            </p>
+            <div class="col-12">
+              <mat-form-field class="{{ lang === 'EN' ? 'rtlLabel' : '' }}">
+                <input
+                  matInput
+                  placeholder="{{ 'Teacher.AddExam.question' | translate }}"
+                  formControlName="title"
+                  class="{{ lang === 'EN' ? 'rtlInput' : '' }}"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6">
+              <mat-form-field class="{{ lang === 'EN' ? 'rtlLabel' : '' }}">
+                <input
+                  matInput
+                  placeholder="{{ 'Teacher.AddExam.answer1' | translate }}"
+                  formControlName="answer1"
+                  class="{{ lang === 'EN' ? 'rtlInput' : '' }}"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6">
+              <mat-form-field class="{{ lang === 'EN' ? 'rtlLabel' : '' }}">
+                <input
+                  matInput
+                  placeholder="{{ 'Teacher.AddExam.answer2' | translate }}"
+                  formControlName="answer2"
+                  class="{{ lang === 'EN' ? 'rtlInput' : '' }}"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6">
+              <mat-form-field class="{{ lang === 'EN' ? 'rtlLabel' : '' }}">
+                <input
+                  matInput
+                  placeholder="{{ 'Teacher.AddExam.answer3' | translate }}"
+                  formControlName="answer3"
+                  class="{{ lang === 'EN' ? 'rtlInput' : '' }}"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6">
+              <mat-form-field class="{{ lang === 'EN' ? 'rtlLabel' : '' }}">
+                <input
+                  matInput
+                  placeholder="{{ 'Teacher.AddExam.answer4' | translate }}"
+                  formControlName="answer4"
+                  class="{{ lang === 'EN' ? 'rtlInput' : '' }}"
+                />
+              </mat-form-field>
+            </div>
+
+            <div class="col-12">
+              <mat-form-field class="{{ lang === 'EN' ? 'rtlLabel' : '' }}">
+                <input
+                  matInput
+                  placeholder="{{
+                    'Teacher.AddExam.correctAnswer' | translate
+                  }}"
+                  formControlName="correctAnswer"
+                  class="{{ lang === 'EN' ? 'rtlInput' : '' }}"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="btns">
+            <div>
+              <button
+                mat-button
+                matStepperPrevious
+                type="button"
+                class="btn-danger me-2"
+                class="{{ lang === 'EN' ? 'ms-2 me-0' : '' }}"
+              >
+                {{ "Teacher.AddExam.back" | translate }}
+              </button>
+              <button
+                mat-button
+                type="button"
+                class="btn-primary"
+                (click)="saveQuestion()"
+                [disabled]="question.invalid"
+              >
+                {{ "Teacher.AddExam.save" | translate }}
+              </button>
+            </div>
+            <div>
+              <button
+                mat-button
+                type="button"
+                (click)="questionReset()"
+                class="btn-secondary me-2"
+              >
+                {{ "Teacher.AddExam.reset" | translate }}
+              </button>
+              <button
+                mat-button
+                matStepperNext
+                type="button"
+                class="btn-success"
+                [disabled]="questions.length === 0"
+                class="{{ lang === 'EN' ? 'me-2 me-0' : '' }}"
+              >
+                {{ "Teacher.AddExam.next" | translate }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step *ngIf="questions.length !== 0">
+        <ng-template matStepLabel>Done</ng-template>
+        <p
+          class="lead text-primary mb-5"
+          class="{{ lang === 'EN' ? 'rtlMood' : '' }}"
+        >
+          {{ "Teacher.AddExam.examPreview" | translate }}.
+        </p>
+        <div class="exam-preview">
+          <h2>{{ "Teacher.AddExam.exam" | translate }} {{ subjectName }}</h2>
+          <ng-container *ngFor="let question of questions; let i = index">
+            <div class="question p-5 shadow border">
+              <p class="title lead">[Q{{ i + 1 }}]- {{ question.title }}</p>
+              <hr />
+              <div class="answers d-flex">
+                <span>[1]- {{ question.answer1 }}</span>
+                <span>[2]- {{ question.answer2 }}</span>
+                <span>[3]- {{ question.answer3 }}</span>
+                <span>[4]- {{ question.answer4 }}</span>
+              </div>
+              <hr />
+              <div class="d-flex justify-content-between">
+                <p class="text-success">
+                  Correct Answer: {{ question.correctAnswer }}
+                </p>
+                <button class="btn btn-danger" (click)="deleteQuestion(i)">
+                  Delete
+                </button>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <div class="btns">
+          <button
+            mat-button
+            matStepperPrevious
+            type="button"
+            class="btn-danger"
+          >
+            {{ "Teacher.AddExam.back" | translate }}
+          </button>
+          <button
+            mat-button
+            type="button"
+            class="btn-success"
+            (click)="addSubject()"
+          >
+            {{ "Teacher.AddExam.done" | translate }}
+          </button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>

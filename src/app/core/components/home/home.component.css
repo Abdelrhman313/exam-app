@@ -1,0 +1,57 @@
+.home .home-info {
+  padding-top: 100px;
+}
+.home .home-info h1 {
+  font-size: 40px;
+  color: #555;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.home .home-info p {
+  color: #888;
+  line-height: 1.7em;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.home .home-info button {
+  border: 2px solid brown;
+  color: brown;
+  letter-spacing: 1px;
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-weight: 500;
+  margin-top: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.home .home-info button:hover {
+  animation: translateVertical 1s ease-in-out infinite;
+}
+@keyframes translateVertical {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@media (max-width: 991.9px) {
+  .home .home-info {
+    text-align: center;
+    padding-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .home img {
+    border-radius: 50%;
+    width: auto;
+    height: 500px;
+    margin: auto;
+    display: block;
+  }
+}

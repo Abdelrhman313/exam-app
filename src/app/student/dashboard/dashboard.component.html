@@ -1,0 +1,96 @@
+<div class="dashboard">
+  <div class="container">
+    <h1>
+      {{ "Student.dashboard.title" | translate }} - {{ loginStudent?.name }}
+    </h1>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-card class="card">
+          <mat-card-header>
+            <mat-card-title class="title mb-3">
+              <i class="fa fa-wand-magic-sparkles me-1"></i>
+              {{ "Student.dashboard.subjects" | translate }}
+              [ {{ subjects?.length }} ]
+            </mat-card-title>
+            <mat-card-subtitle class="text-muted">
+              {{
+                subjects?.length === 0
+                  ? "No Exam Added Yet"
+                  : "Available " + subjects?.length + " Exams"
+              }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <img
+            mat-card-image
+            src="https://i.ibb.co/rm165Wq/exam.png"
+            alt="exam"
+            class="img-fluid"
+          />
+          <mat-card-content>
+            <p class="text-muted">
+              {{ "Student.dashboard.subTitle1" | translate }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button
+              mat-raised-button
+              color="primary"
+              [routerLink]="'../teacher/subjects'"
+              [disabled]="subjects?.length === 0"
+            >
+              {{ "Student.dashboard.showExams" | translate }}
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div class="col-md-6">
+        <mat-card class="card">
+          <mat-card-header>
+            <mat-card-title class="title mb-3">
+              <i class="fa fa-user-graduate me-1"></i>
+              {{ "Student.dashboard.grades" | translate }}
+              [
+              {{
+                studentInfo?.subjects?.length === null
+                  ? 0
+                  : studentInfo?.subjects?.length
+              }}
+              ]
+            </mat-card-title>
+            <mat-card-subtitle class="text-muted">
+              {{
+                studentInfo?.subjects?.length === null
+                  ? "No Grades Added Yet"
+                  : "Available " + studentInfo?.subjects?.length + " Grades"
+              }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <img
+            mat-card-image
+            src="https://i.ibb.co/DgvFTwC/grades.png"
+            alt="exam"
+            class="img-fluid"
+          />
+          <mat-card-content style="margin-top: 40px">
+            <p class="text-muted">
+              {{ "Student.dashboard.subTitle2" | translate }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button
+              mat-raised-button
+              color="primary"
+              [routerLink]="'./grades'"
+              [disabled]="
+                studentInfo?.subjects?.length === 0 ||
+                studentInfo?.subjects == null
+              "
+            >
+              {{ "Student.dashboard.ShowGrades" | translate }}
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
